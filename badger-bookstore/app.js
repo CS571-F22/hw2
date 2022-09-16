@@ -1,56 +1,16 @@
 const API_SINGLE_BOOK = "https://www.coletnelson.us/cs571/f22/hw2/api/book";
 const API_MULTIPLE_BOOKS = "https://www.coletnelson.us/cs571/f22/hw2/api/books?amount=12";
 
-// Note: This is a 'simple' way to create a vanilla JavaScript component.
-//       A more correct way would follow https://www.section.io/engineering-education/how-to-create-a-web-component-with-vanilla-javascript/
-//       A most correct way would be to use a component-based library, such as React! :)
-const BOOK_HTML = `
-<div class='col-6' style='margin-bottom:1rem'>
-    <div class='card'>
-        <div class='card-header'>
-            <h3>{{name}} (\${{price}})</h3>
-            <p>Written by {{author}}</p>
-        </div>
-        <div class='card-body'>
-            <h4>{{rating}} stars</h4>
-            <p>{{description}}</p>
-        </div>
-        <button type="button" class="btn btn-primary" name="checkout">Checkout</button>
-    </div>
-</div>
-`
+// TODO: Set the featured book's image.
 
-function constructBook(name, author, price, rating, description) {
-    return BOOK_HTML
-        .replace("{{name}}", name)
-        .replace("{{author}}", author)
-        .replace("{{price}}", Number(price).toFixed(2))
-        .replace("{{rating}}", Number(rating).toFixed(1))
-        .replace("{{description}}", description)
-}
 
-function loadFeaturedBookData() {
-    // TODO: Set the featured book's image.
-
-    fetch(API_SINGLE_BOOK)
-    .then((res) => res.json())
-    .then((book) => {
-        // TODO: Set the data for the featured book.
-
-    });
-}
-
-function loadAllOtherBookData() {
-    // TODO: Load all other book data.
+// TODO: Set the data for the featured book.
+fetch(API_SINGLE_BOOK)
+.then((res) => res.json())
+.then((book) => {
     
-}
 
-loadFeaturedBookData();
-loadAllOtherBookData();
-
-// TODO: Is this in the right spot?
-document.getElementsByName("checkout").forEach(checkoutBtn => {
-    checkoutBtn.addEventListener("click", () => {
-        alert("Thanks for checking out this book!");
-    });
 });
+
+// TODO: Load all other book data.
+
